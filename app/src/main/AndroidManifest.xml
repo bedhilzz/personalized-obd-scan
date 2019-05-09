@@ -39,10 +39,19 @@
             android:label="Maintenance Journal"
             android:parentActivityName=".views.HomeActivity"
             android:theme="@style/AppTheme">
+
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".views.MaintenanceDamageListActivity"
+            android:parentActivityName=".views.MaintenanceJournalActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.MaintenanceJournalActivity" />
         </activity>
     </application>
 

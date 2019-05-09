@@ -14,6 +14,7 @@ import id.ac.ui.ft.personalizedobdscan.models.MaintenanceJournalOption;
 
 public class MaintenanceJournalOptionAdapter extends RecyclerView.Adapter<MaintenanceJournalOptionAdapter.MaintenanceJournalOptionViewHolder> {
     private ArrayList<MaintenanceJournalOption> options;
+    private MaintenanceJournalOptionListener context;
 
     public static class MaintenanceJournalOptionViewHolder extends RecyclerView.ViewHolder {
         TextView name;
@@ -30,8 +31,9 @@ public class MaintenanceJournalOptionAdapter extends RecyclerView.Adapter<Mainte
 
     }
 
-    public MaintenanceJournalOptionAdapter(ArrayList<MaintenanceJournalOption> options) {
+    public MaintenanceJournalOptionAdapter(ArrayList<MaintenanceJournalOption> options, MaintenanceJournalOptionListener context) {
         this.options = options;
+        this.context = context;
     }
 
     @NonNull
@@ -46,15 +48,27 @@ public class MaintenanceJournalOptionAdapter extends RecyclerView.Adapter<Mainte
     public void onBindViewHolder(@NonNull MaintenanceJournalOptionViewHolder maintenanceJournalOptionViewHolder, int i) {
         MaintenanceJournalOption option = options.get(i);
 
-        String name = option.getName();
+        final int optionId = option.getId();
+        final String name = option.getName();
         String description = option.getDescription();
 
         maintenanceJournalOptionViewHolder.name.setText(name);
         maintenanceJournalOptionViewHolder.description.setText(description);
+
+        maintenanceJournalOptionViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.onMaintenanceJournalOptionClicked(optionId, name);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return options.size();
+    }
+
+    public interface MaintenanceJournalOptionListener {
+        void onMaintenanceJournalOptionClicked(int optionId, String title);
     }
 }

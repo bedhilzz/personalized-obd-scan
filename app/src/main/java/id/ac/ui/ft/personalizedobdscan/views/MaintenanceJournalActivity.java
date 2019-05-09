@@ -1,19 +1,20 @@
 package id.ac.ui.ft.personalizedobdscan.views;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-
-import java.util.ArrayList;
+import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 
 import id.ac.ui.ft.personalizedobdscan.R;
 import id.ac.ui.ft.personalizedobdscan.databinding.ActivityMaintenanceJournalBinding;
-import id.ac.ui.ft.personalizedobdscan.models.MaintenanceJournalOption;
 import id.ac.ui.ft.personalizedobdscan.viewmodels.MaintenanceJournalViewModel;
 
-public class MaintenanceJournalActivity extends AppCompatActivity {
+public class MaintenanceJournalActivity extends AppCompatActivity implements MaintenanceJournalOptionAdapter.MaintenanceJournalOptionListener {
 
     private ActivityMaintenanceJournalBinding binding;
     private MaintenanceJournalOptionAdapter adapter;
@@ -29,6 +30,15 @@ public class MaintenanceJournalActivity extends AppCompatActivity {
         initComponent();
     }
 
+    @Override
+    public void onMaintenanceJournalOptionClicked(int optionId, String title) {
+
+        Intent intent = new Intent(this, MaintenanceDamageListActivity.class);
+        intent.putExtra("option_id", optionId);
+        intent.putExtra("option_title", title);
+        startActivity(intent);
+    }
+
     private void initComponent() {
         initViewModel();
         initAdapter();
@@ -36,7 +46,7 @@ public class MaintenanceJournalActivity extends AppCompatActivity {
 
     private void initAdapter() {
         binding.maintenanceJournalOptions.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MaintenanceJournalOptionAdapter(viewModel.getOptions());
+        adapter = new MaintenanceJournalOptionAdapter(viewModel.getOptions(), this);
         binding.maintenanceJournalOptions.setAdapter(adapter);
     }
 
