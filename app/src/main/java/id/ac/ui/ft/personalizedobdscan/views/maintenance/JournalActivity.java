@@ -40,13 +40,15 @@ public class JournalActivity extends AppCompatActivity {
     private void initDataBinding() {
         String key = String.format(Locale.US, "journal_%d_%d_", viewModel.optionId, viewModel.damageId);
 
-        String component = getStringByKey(key + "damage");
+        String component = getStringByKey(key + "component");
+        String damage = getStringByKey(key + "damage");
         String findings = getStringByKey(key + "findings");
         String impacts = getStringByKey(key + "impacts");
         String causes = getStringByKey(key + "causes");
         String actions = getStringByKey(key + "action");
         String preventions = getStringByKey(key + "prevention");
 
+        binding.tvDamage.setText(damage);
         binding.tvComponent.setText(component);
         binding.tvFindings.setText(findings);
         binding.tvImpacts.setText(impacts);

@@ -4,6 +4,7 @@
     <string name="tv_lorem_ipsum">Lorem ipsum</string>
 
     <string name="tv_component">Komponen</string>
+    <string name="tv_damage">Kerusakan</string>
     <string name="tv_findings">Penemuan</string>
     <string name="tv_causes">Penyebab</string>
     <string name="tv_impacts">Akibat</string>
@@ -97,6 +98,96 @@
     <string name="journal_1_11_impacts">Boot yang rusak akan menyebabkan udara lembab untuk masuk ke dalam sistem pengereman dan menyebabkan korosi. Jika dibiarkan akan menyebar keseluruh interior dari Kaliper Rem. Dapat menyebabkan kegagalan rem total apabila tidak ditangani secepatnya.</string>
     <string name="journal_1_11_action">Sirkuit penumatik dan seluruh komponen yang terkena dampak harus dicek. Komponen yang terkena panas berlebihan harus diganti.</string>
     <string name="journal_1_11_prevention">Mengemudi dengan hati-hati dan tidak melakukan pengereman keras berulang kali dalam waktu dekat.</string>
+
+
+    <string name="journal_2_1_damage">Scoring and uneven wear (due to dirt penetration)</string>
+    <string name="journal_2_1_component">Drum</string>
+    <string name="journal_2_1_findings">Terdapat kerusakan berupa hangus pada seluruh kontak permukaan dari drum. Tingkat aus pada drum sangat berhubungan dengan material gesek rem. Batas aus telah tercapai dan bahkan lebih setelah mencakup jarak yang relatif dekat.</string>
+    <string name="journal_2_1_causes">Biasanya akibat kendaraan sering melewati jalan yang berpasir atau berdebu dengan pelindung debu yang rusak atau tidak ada sama sekali. Pasir dan debu tidak dapat masuk ke dalam drum tetapi tetap berada dipermukaan dan mempercepat tingkat aus.</string>
+    <string name="journal_2_1_impacts">Ketika aus sudah meningkat, sebuah ujung terbentuk pada sisi luar dari drum yang menahan pasir atau debu di dalam rem sehingga meningkatkan abrasi.</string>
+    <string name="journal_2_1_action">Drum harus diperbarui/diganti.</string>
+    <string name="journal_2_1_prevention">Melakukan pengecekan pelindung pasir dan debu secara rutin. Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_2_2_damage">Scoring at rivet hole intervals</string>
+    <string name="journal_2_2_component">Drum</string>
+    <string name="journal_2_2_findings">Terdapat kerusakan berupa hangus pada area material gesek terutama pada lubang rivet.</string>
+    <string name="journal_2_2_causes">Jika debu dan udara lembab masuk ke dalam rem sebagai akibat pelindung debu yang hilang, tekanan dan temperatur dapat mengakibatkan pembentukan aus yang mirip tanah liat di dalam lubang rivet. Ketika aus semakin meningkat dapat menyebabkan hangus yang cukup parah di area lubang rivet.</string>
+    <string name="journal_2_2_impacts">Jika batasan dari drum telah dilewati, dapat memiliki dampak berkurangnya kekuatan pengereman dari drum.</string>
+    <string name="journal_2_2_action">Drum harus diperbarui/diganti.</string>
+    <string name="journal_2_2_prevention">Melakukan pengecekan pelindung pasir dan debu secara rutin. Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_2_3_damage">Scorches (heat spotting) and heat cracks</string>
+    <string name="journal_2_3_component">Drum</string>
+    <string name="journal_2_3_findings">Terdapat kerusakan berupa hangus pada permukaan drum</string>
+    <string name="journal_2_3_causes">Mendapatkan beban termal berlebihan atau pengereman terus-menerus ketika beban kendaraan melebihi seharusnya</string>
+    <string name="journal_2_3_impacts">Menyebabkan retak pada permukaan yang tidak terlalu panjang sehingga menyebabkan drum lebih cepat mencapai batas ausnya. Namun, terdapat retak yang lebih dalam membuat drum berpotensi mengalami patah.</string>
+    <string name="journal_2_3_action">Drum harus diperbarui/diganti.</string>
+    <string name="journal_2_3_prevention">Mengemudi dengan hati-hati dan tidak melakukan pengereman keras berulang kali dalam waktu dekat.</string>
+
+    <string name="journal_2_4_damage">Cold fracture of brake drum</string>
+    <string name="journal_2_4_component">Drum</string>
+    <string name="journal_2_4_findings">Terdapat patahan pada permukaan drum tetapi tidak adanya warna di permukaan yang mengindikasikan kelebihan beban termal</string>
+    <string name="journal_2_4_causes">Retak yang sangat kecil akibat kesalahan manufaktur atau pengiriman.Tidak mungkin terlihat karena sangat kecil dan biasanya berada di dalam komponen.</string>
+    <string name="journal_2_4_impacts">Retak yang kecil akan terlihat dan menyebar pada material ketika melakukan pengereman keras dan menyebabkan drum hancur.</string>
+    <string name="journal_2_4_action">Drum harus segera diperbarui/diganti.</string>
+    <string name="journal_2_4_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_2_5_damage">Brake contact surface corrosion</string>
+    <string name="journal_2_5_component">Drum</string>
+    <string name="journal_2_5_findings">Terdapat sedikit karat pada permukaan rem sehingga area kontak dari material gesek dengan drum dapat terlihat dengan jelas</string>
+    <string name="journal_2_5_causes">Jika udara lembab dapat masuk ke dalam akibat dibersihkan dengan pembersih bertekanan tinggi atau ketika cuaca yang basah, karat akan muncul.</string>
+    <string name="journal_2_5_impacts">Karat pada permukaan tidak akan berpengaruh pada performa pengereman karena akan terkikis ketika dilakukan pengereman</string>
+    <string name="journal_2_5_action">Tidak perlu dilakukan tindakan</string>
+    <string name="journal_2_5_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_2_6_damage">Scoring and uneven wear (due to dirt penetration)</string>
+    <string name="journal_2_6_component">Shoe</string>
+    <string name="journal_2_6_findings">Permukaan terlihat aus dan bekas gesekan terlihat jelas</string>
+    <string name="journal_2_6_causes">Biasanya akibat kendaraan sering melewati jalan yang berpasir atau berdebu dengan pelindung debu yang rusak atau tidak ada sama sekali. Pasir dan debu tidak dapat masuk ke dalam drum tetapi tetap berada dipermukaan dan mempercepat tingkat aus.</string>
+    <string name="journal_2_6_impacts">Partikel debu pada pada rem akan membuat aus drum dan material gesek secara cepat dan tidak merata menyebabkan lapisan karbon akibat pengereman tidak terbentuk. Tidak adanya karbon gesek sistem pengereman akan kehilangan efeknya. Bahkan dapat membuat rem depan atau belakang atau samping memiliki performa rem berbeda.</string>
+    <string name="journal_2_6_action">Shoe harus segera diperbarui/diganti.</string>
+    <string name="journal_2_6_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_2_7_damage">Thermal overloading of the brake linings</string>
+    <string name="journal_2_7_component">Shoe</string>
+    <string name="journal_2_7_findings">Terlihat permukaan memiliki retak terutama pada area lubang rivet.</string>
+    <string name="journal_2_7_causes">Beban termal yang berlebihan atau panas belerbihan.</string>
+    <string name="journal_2_7_impacts">Panas berlebihan menyebabkan agen pengikat pada permukaan menguap sehingga permukaan aus lebih cepat. Ketika material gesek berpori lalu retak kemudian hancur dapat menyebabkan kegagalan total pada sistem pengereman</string>
+    <string name="journal_2_7_action">Melakukan pembeharuan/penggantian terhadap shoe, wheel bearing, dan seals.</string>
+    <string name="journal_2_7_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_2_8_damage">Brake lining below the permissible thickness</string>
+    <string name="journal_2_8_component">Shoe</string>
+    <string name="journal_2_8_findings">Permukaan dari material gesek sudah melewati batas minimum ketebalan</string>
+    <string name="journal_2_8_causes">Tidak menyadarinya batas dari material gesek (ketika sudah harus diganti)</string>
+    <string name="journal_2_8_impacts">Tidak mendapatkan pengereman seperti yang seharusnya, bahkan drum akan terkena dampak kerusakannya atau hancur akibat bergesekan dengan rivet menyebabkan kegagalan total pada sistem pengereman</string>
+    <string name="journal_2_8_action">Material gesek yang sudah mencapai batasnya harus diperbarui/diganti.</string>
+    <string name="journal_2_8_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+
+    <string name="journal_3_1_damage">Brake cylinder mounting face torn out due to loose screw connection</string>
+    <string name="journal_3_1_component">Silinder Rem</string>
+    <string name="journal_3_1_findings">Bagian sekrup yang membuat posisi silinder rem tetap rusak memperlihatkan tanda dari patah akibat fatigue pada patahan di permukaan.</string>
+    <string name="journal_3_1_causes">Jika kondisi jalan ridak baik, dampak dari shock akan ditransmisikan ke silinder rem yang akhirnya dapat membuat patahan akibat fatigue pada rumah silinder rem. Hal ini dpercepat dengan sekrup yang longgar dan tidak layak pakai.</string>
+    <string name="journal_3_1_impacts">Pergerakan dari batang piston mendorong silinder rem menjauh dari <i>chamber bracket</i> rem dan bukannya mengontrol <i>slack adjuster</i> serta <i>camshaft</i>. Bahkan ketika dibiarkan silinder ini sudah tidak bisa lagi mengoperasikan rem.</string>
+    <string name="journal_3_1_action">Silinder rem harus diperbarui/diganti secepatnya.</string>
+    <string name="journal_3_1_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_3_2_damage">Corrosion in the brake cylinder</string>
+    <string name="journal_3_2_component">Silinder Rem</string>
+    <string name="journal_3_2_findings">Terdapat korosi pada pegas, piston, dan rumah dari silinder rem</string>
+    <string name="journal_3_2_causes">Udara lembab yang masuk silinder akibat adanya komponen yang tidak layak pakai</string>
+    <string name="journal_3_2_impacts">Kompresi pada silinder yang terdampak korosi dapat membuat pegas rusak dalam tekanan. Hal ini akan membuat udara lembab dapat masuk ke dalam kaliper rem membuat korosi sehingga performa pengereman menjadi kaku dan menurun kekuatannya.</string>
+    <string name="journal_3_2_action">Silinder rem harus diperbarui/diganti secepatnya.</string>
+    <string name="journal_3_2_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
+
+    <string name="journal_3_3_damage">Leakage</string>
+    <string name="journal_3_3_component">Silinder Rem</string>
+    <string name="journal_3_3_findings">Pedal rem harus ditekan lebih dalam dan rem kehilangan kekuatannya</string>
+    <string name="journal_3_3_causes">Terdapat kebocoran pada silinder rem</string>
+    <string name="journal_3_3_impacts">Performa rem yang berkurang dan dapat berakibat fatal apabila tidak segera diperbarui/diganti. Jika dalam kondisi pengereman keras, rem bisa kehilangan kekuatannya sama sekali dan meningkatkan risiko kecelakaan</string>
+    <string name="journal_3_3_action">Silinder rem harus diperbarui/diganti secepatnya.</string>
+    <string name="journal_3_3_prevention">Melakukan pengecekan rutin berdasarkan rekomendasi service and maintenance guide book</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
