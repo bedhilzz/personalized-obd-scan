@@ -16,11 +16,18 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         binding = DataBindingUtil.
                 setContentView(RegisterActivity.this, R.layout.activity_register);
 
         initComponent();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void initComponent() {
@@ -29,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void initRegisterButton() {
         final Intent intent = new Intent(this, HomeActivity.class);
-        binding.button.setOnClickListener(new View.OnClickListener() {
+        binding.buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(intent);

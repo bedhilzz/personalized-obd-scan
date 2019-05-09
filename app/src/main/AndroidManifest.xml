@@ -21,7 +21,8 @@
         </activity>
         <activity
             android:name=".views.RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Register"
+            android:theme="@style/AppTheme" />
         <activity android:name=".views.HomeActivity" />
         <activity
             android:name=".views.AnalysisActivity"

@@ -25,10 +25,21 @@ public class LauncherActivity extends AppCompatActivity {
 
     private void initComponent() {
         initRegisterButton();
+        initLoginButton();
     }
 
     private void initRegisterButton() {
         final Intent  intent = new Intent(this, RegisterActivity.class);
+        binding.tvPleaseRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initLoginButton() {
+        final Intent  intent = new Intent(this, HomeActivity.class);
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Personalized OBD Scan</string>
+    <string name="dummy_email">email@example.com</string>
 
     <string name="tv_lorem_ipsum">Lorem ipsum</string>
+
+    <string name="tv_please_register">Belum ada akun? <b>Register</b></string>
 
     <string name="tv_component">Komponen</string>
     <string name="tv_damage">Kerusakan</string>
