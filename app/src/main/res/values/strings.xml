@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Personalized OBD Scan</string>
 
+    <string name="tv_lorem_ipsum">Lorem ipsum</string>
+
     <string name="tv_component">Komponen</string>
     <string name="tv_findings">Penemuan</string>
     <string name="tv_causes">Penyebab</string>

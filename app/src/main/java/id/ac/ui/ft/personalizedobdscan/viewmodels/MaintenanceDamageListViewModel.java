@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import id.ac.ui.ft.personalizedobdscan.models.MaintenanceDamage;
 
 public class MaintenanceDamageListViewModel extends AndroidViewModel {
+    public String title;
+    public int optionId;
     private ArrayList<MaintenanceDamage> damageList;
 
     public MaintenanceDamageListViewModel(@NonNull Application application) {

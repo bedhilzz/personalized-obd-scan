@@ -28,6 +28,12 @@ public class MaintenanceJournalActivity extends AppCompatActivity implements Mai
     }
 
     @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
     public void onMaintenanceJournalOptionClicked(int optionId, String title) {
         Intent intent = new Intent(this, MaintenanceDamageListActivity.class);
         intent.putExtra("option_id", optionId);

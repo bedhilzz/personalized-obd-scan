@@ -26,41 +26,17 @@
         <activity
             android:name=".views.AnalysisActivity"
             android:label="Analysis"
-            android:parentActivityName=".views.HomeActivity"
-            android:theme="@style/AppTheme">
-
-            <!-- The meta-data element is needed for versions lower than 4.1 -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.HomeActivity" />
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".views.maintenance.MaintenanceJournalActivity"
             android:label="Maintenance Journal"
-            android:parentActivityName=".views.HomeActivity"
-            android:theme="@style/AppTheme">
-
-            <!-- The meta-data element is needed for versions lower than 4.1 -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.HomeActivity" />
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".views.maintenance.MaintenanceDamageListActivity"
-            android:parentActivityName=".views.maintenance.MaintenanceJournalActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.maintenance.MaintenanceJournalActivity" />
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".views.maintenance.JournalActivity"
-            android:parentActivityName=".views.maintenance.MaintenanceDamageListActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.maintenance.MaintenanceDamageListActivity" />
-        </activity>
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

@@ -22,9 +22,7 @@ public class MaintenanceDamageListActivity extends AppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String title = getIntent().getExtras().getString("option_title");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(title);
 
         binding = DataBindingUtil.
                 setContentView(MaintenanceDamageListActivity.this, R.layout.activity_maintenance_damage_list);
@@ -33,11 +31,16 @@ public class MaintenanceDamageListActivity extends AppCompatActivity implements 
     }
 
     @Override
-    public void onMaintenanceDamageOptionClicked(int damageId, String title) {
-        int optionId = getIntent().getExtras().getInt("option_id");
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
+    @Override
+    public void onMaintenanceDamageOptionClicked(int damageId, String title) {
         Intent intent = new Intent(this, JournalActivity.class);
-        intent.putExtra("option_id", optionId);
+        intent.putExtra("option_title", viewModel.title);
+        intent.putExtra("option_id", viewModel.optionId);
         intent.putExtra("damage_id", damageId);
         startActivity(intent);
     }
@@ -50,13 +53,16 @@ public class MaintenanceDamageListActivity extends AppCompatActivity implements 
     private void initViewModel() {
         viewModel = ViewModelProviders.of(this).get(MaintenanceDamageListViewModel.class);
 
+        viewModel.title = getIntent().getExtras().getString("option_title");
+        viewModel.optionId= getIntent().getExtras().getInt("option_id");
+        getSupportActionBar().setTitle(viewModel.title);
+
         binding.setUser(viewModel);
         binding.setLifecycleOwner(this);
     }
 
     private void initAdapter() {
-        int optionId = getIntent().getExtras().getInt("option_id");
-        viewModel.initDamageList(optionId);
+        viewModel.initDamageList(viewModel.optionId);
 
         binding.maintenanceDamageList.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MaintenanceDamageListAdapter(viewModel.getDamageList(), this);

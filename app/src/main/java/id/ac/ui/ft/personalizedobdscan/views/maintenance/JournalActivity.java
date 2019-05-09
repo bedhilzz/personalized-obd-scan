@@ -14,16 +14,11 @@ import id.ac.ui.ft.personalizedobdscan.viewmodels.JournalViewModel;
 public class JournalActivity extends AppCompatActivity {
     private ActivityJournalBinding binding;
     private JournalViewModel viewModel;
-    private int optionId;
-    private int damageId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        optionId = getIntent().getExtras().getInt("option_id");
-        damageId = getIntent().getExtras().getInt("damage_id");
 
         binding = DataBindingUtil.
                 setContentView(JournalActivity.this, R.layout.activity_journal);
@@ -31,20 +26,28 @@ public class JournalActivity extends AppCompatActivity {
         initComponent();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     private void initComponent() {
-        initDataBinding();
         initViewModel();
+        initDataBinding();
     }
 
     private void initDataBinding() {
-        String key = String.format(Locale.US, "journal_%d_%d_", optionId, damageId);
+        String key = String.format(Locale.US, "journal_%d_%d_", viewModel.optionId, viewModel.damageId);
 
+        String component = getStringByKey(key + "damage");
         String findings = getStringByKey(key + "findings");
         String impacts = getStringByKey(key + "impacts");
         String causes = getStringByKey(key + "causes");
         String actions = getStringByKey(key + "action");
         String preventions = getStringByKey(key + "prevention");
 
+        binding.tvComponent.setText(component);
         binding.tvFindings.setText(findings);
         binding.tvImpacts.setText(impacts);
         binding.tvCauses.setText(causes);
@@ -54,6 +57,11 @@ public class JournalActivity extends AppCompatActivity {
 
     private void initViewModel() {
         viewModel = ViewModelProviders.of(this).get(JournalViewModel.class);
+        viewModel.title = getIntent().getExtras().getString("option_title");
+        getSupportActionBar().setTitle(viewModel.title);
+
+        viewModel.optionId = getIntent().getExtras().getInt("option_id");
+        viewModel.damageId = getIntent().getExtras().getInt("damage_id");
     }
 
     private String getStringByKey(String key) {
