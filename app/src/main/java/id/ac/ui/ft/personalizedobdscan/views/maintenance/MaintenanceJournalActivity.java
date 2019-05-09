@@ -1,14 +1,11 @@
-package id.ac.ui.ft.personalizedobdscan.views;
+package id.ac.ui.ft.personalizedobdscan.views.maintenance;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
 
 import id.ac.ui.ft.personalizedobdscan.R;
 import id.ac.ui.ft.personalizedobdscan.databinding.ActivityMaintenanceJournalBinding;
@@ -32,7 +29,6 @@ public class MaintenanceJournalActivity extends AppCompatActivity implements Mai
 
     @Override
     public void onMaintenanceJournalOptionClicked(int optionId, String title) {
-
         Intent intent = new Intent(this, MaintenanceDamageListActivity.class);
         intent.putExtra("option_id", optionId);
         intent.putExtra("option_title", title);

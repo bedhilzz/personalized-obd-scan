@@ -1,4 +1,4 @@
-package id.ac.ui.ft.personalizedobdscan.views;
+package id.ac.ui.ft.personalizedobdscan.views.maintenance;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

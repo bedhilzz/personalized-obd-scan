@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.GridLayout;
 
 import id.ac.ui.ft.personalizedobdscan.R;
+import id.ac.ui.ft.personalizedobdscan.views.maintenance.MaintenanceJournalActivity;
 
 public class HomeActivity extends AppCompatActivity {
 

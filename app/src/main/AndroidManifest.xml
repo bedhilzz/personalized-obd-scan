@@ -35,7 +35,7 @@
                 android:value=".views.HomeActivity" />
         </activity>
         <activity
-            android:name=".views.MaintenanceJournalActivity"
+            android:name=".views.maintenance.MaintenanceJournalActivity"
             android:label="Maintenance Journal"
             android:parentActivityName=".views.HomeActivity"
             android:theme="@style/AppTheme">
@@ -46,12 +46,20 @@
                 android:value=".views.HomeActivity" />
         </activity>
         <activity
-            android:name=".views.MaintenanceDamageListActivity"
-            android:parentActivityName=".views.MaintenanceJournalActivity"
+            android:name=".views.maintenance.MaintenanceDamageListActivity"
+            android:parentActivityName=".views.maintenance.MaintenanceJournalActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.MaintenanceJournalActivity" />
+                android:value=".views.maintenance.MaintenanceJournalActivity" />
+        </activity>
+        <activity
+            android:name=".views.maintenance.JournalActivity"
+            android:parentActivityName=".views.maintenance.MaintenanceDamageListActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.maintenance.MaintenanceDamageListActivity" />
         </activity>
     </application>
 
