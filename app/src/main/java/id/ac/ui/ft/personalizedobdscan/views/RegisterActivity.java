@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void initRegisterButton() {
         final Intent intent = new Intent(this, HomeActivity.class);
-        binding.buttonRegister.setOnClickListener(new View.OnClickListener() {
+        binding.registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(intent);
