@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "38830477276",
+    "firebase_url": "https://personalized-obd-scan.firebaseio.com",
+    "project_id": "personalized-obd-scan",
+    "storage_bucket": "personalized-obd-scan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38830477276:android:cbb8e8554c0b4710",
+        "android_client_info": {
+          "package_name": "id.ac.ui.ft.personalizedobdscan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38830477276-qt0441bk39sdonl2aihdadkugcs8q0gr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2JQbjuHXcH4bqisCHODCMMvHe_e6UZhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38830477276-qt0441bk39sdonl2aihdadkugcs8q0gr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

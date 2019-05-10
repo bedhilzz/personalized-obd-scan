@@ -4,8 +4,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import id.ac.ui.ft.personalizedobdscan.models.request.LoginRequest;
+import id.ac.ui.ft.personalizedobdscan.models.request.RegisterRequest;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.LoginResponse;
+import id.ac.ui.ft.personalizedobdscan.models.response.RegisterResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,6 +43,28 @@ public class ApplicationRepository {
 
             @Override
             public void onFailure(Call<BaseResponse<LoginResponse>> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
+    }
+
+    public LiveData<BaseResponse<RegisterResponse>> register(final RegisterRequest request) {
+        final MutableLiveData<BaseResponse<RegisterResponse>> data = new MutableLiveData<>();
+
+        apiService.register(request).enqueue(new Callback<BaseResponse<RegisterResponse>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<RegisterResponse>> call, Response<BaseResponse<RegisterResponse>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<RegisterResponse>> call, Throwable t) {
                 data.setValue(null);
             }
         });

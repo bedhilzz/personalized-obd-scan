@@ -1,5 +1,6 @@
 package id.ac.ui.ft.personalizedobdscan.views;
 
+import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import id.ac.ui.ft.personalizedobdscan.R;
+import id.ac.ui.ft.personalizedobdscan.constant.Constants;
 import id.ac.ui.ft.personalizedobdscan.databinding.ActivityLauncherBinding;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.LoginResponse;
@@ -28,10 +30,19 @@ public class LauncherActivity extends AppCompatActivity {
         binding = DataBindingUtil.
                 setContentView(LauncherActivity.this, R.layout.activity_launcher);
 
-        binding.etEmailLogin.setText("dwi@nanda.com");
-        binding.etPasswordLogin.setText("dwinanda");
-
         initComponent();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == Constants.PERFORM_REGISTRATION) {
+                binding.etEmailLogin.setText(data.getStringExtra("email"));
+                binding.etPasswordLogin.setText(data.getStringExtra("password"));
+            }
+        }
     }
 
     private void initComponent() {
@@ -48,11 +59,11 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     private void initRegisterButton() {
-        final Intent  intent = new Intent(this, RegisterActivity.class);
+        final Intent intent = new Intent(this, RegisterActivity.class);
         binding.tvPleaseRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(intent);
+                startActivityForResult(intent, Constants.PERFORM_REGISTRATION);
             }
         });
     }

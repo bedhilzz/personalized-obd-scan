@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">Personalized OBD Scan</string>
+
     <string name="dummy_email">Email</string>
     <string name="dummy_name">Name</string>
     <string name="dummy_password">Password</string>
     <string name="dummy_age">Age</string>
+    <string-array name="cars_array">
+        <item>Nissan Juke 1.5L CVT 2015</item>
+    </string-array>
+
+
+    <string name="registration_successful">Registration Successful!</string>
 
     <string name="unknown_error">Unknown error Occurred</string>
+    <string name="validation_error">Please enter a valid input data</string>
 
     <string name="tv_lorem_ipsum">Lorem ipsum</string>
 
