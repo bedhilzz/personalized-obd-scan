@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Personalized OBD Scan</string>
-    <string name="dummy_email">email@example.com</string>
+    <string name="dummy_email">Email</string>
+    <string name="dummy_name">Name</string>
+    <string name="dummy_password">Password</string>
+    <string name="dummy_age">Age</string>
+
+    <string name="unknown_error">Unknown error Occurred</string>
 
     <string name="tv_lorem_ipsum">Lorem ipsum</string>
 
