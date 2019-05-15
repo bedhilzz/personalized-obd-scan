@@ -3,7 +3,9 @@ package id.ac.ui.ft.personalizedobdscan.views;
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,14 +24,19 @@ public class LauncherActivity extends AppCompatActivity {
 
     private ActivityLauncherBinding binding;
     private LauncherViewModel viewModel;
+    private SharedPreferences mPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mPrefs = getSharedPreferences(Constants.PREF_FILE_NAME, Context.MODE_PRIVATE);
+
         binding = DataBindingUtil.
                 setContentView(LauncherActivity.this, R.layout.activity_launcher);
 
+        binding.etEmailLogin.setText("fadhil@example.com");
+        binding.etPasswordLogin.setText("password");
         initComponent();
     }
 
@@ -88,6 +95,14 @@ public class LauncherActivity extends AppCompatActivity {
             public void onChanged(@Nullable BaseResponse<LoginResponse> loginResponse) {
                 if (loginResponse != null) {
                     if (loginResponse.getIsSuccess()) {
+                        LoginResponse userData = loginResponse.getData().get(0);
+
+                        String email = userData.getEmail();
+                        String fcmToken = userData.getFcmToken();
+
+                        mPrefs.edit().putString(Constants.PREF_KEY_USER_EMAIL, email).apply();
+                        mPrefs.edit().putString(Constants.PREF_KEY_FCM_TOKEN, fcmToken).apply();
+
                         startActivity(intent);
                         finish();
                     } else {

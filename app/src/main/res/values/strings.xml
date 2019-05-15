@@ -19,6 +19,9 @@
 
     <string name="tv_please_register">Belum ada akun? <b>Register</b></string>
 
+    <string name="tv_bar_chart_braking_analysis_average_reduction">Average reduction of life expectancy</string>
+    <string name="tv_bar_chart_braking_analysis_remaining_life">Remaining life expectancy</string>
+
     <string name="tv_component">Komponen</string>
     <string name="tv_damage">Kerusakan</string>
     <string name="tv_findings">Penemuan</string>
