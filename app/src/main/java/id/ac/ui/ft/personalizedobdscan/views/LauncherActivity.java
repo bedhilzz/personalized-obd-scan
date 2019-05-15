@@ -35,8 +35,6 @@ public class LauncherActivity extends AppCompatActivity {
         binding = DataBindingUtil.
                 setContentView(LauncherActivity.this, R.layout.activity_launcher);
 
-        binding.etEmailLogin.setText("fadhil@example.com");
-        binding.etPasswordLogin.setText("password");
         initComponent();
     }
 

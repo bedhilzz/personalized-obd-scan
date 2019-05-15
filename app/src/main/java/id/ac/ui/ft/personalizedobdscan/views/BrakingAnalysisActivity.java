@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ import id.ac.ui.ft.personalizedobdscan.models.response.BrakeAnalysisResponse;
 import id.ac.ui.ft.personalizedobdscan.util.BrakeAnalysisXAxisFormatter;
 import id.ac.ui.ft.personalizedobdscan.viewmodels.BrakingAnalysisViewModel;
 
-public class BrakingAnalysisActivity extends AppCompatActivity {
+public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private ActivityBrakingAnalysisBinding binding;
     private BrakingAnalysisViewModel viewModel;
     private SharedPreferences mPrefs;
@@ -40,6 +41,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity {
         mPrefs = getSharedPreferences(Constants.PREF_FILE_NAME, Context.MODE_PRIVATE);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_braking_analysis);
+        binding.brakingAnalysisSwipeRefreshLayout.setOnRefreshListener(this);
 
         initComponent();
     }
@@ -48,6 +50,11 @@ public class BrakingAnalysisActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onRefresh() {
+        getBrakingAnalysisData();
     }
 
     private void initComponent() {
@@ -68,6 +75,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity {
                 observe(this, new Observer<BaseResponse<BrakeAnalysisResponse>>() {
                     @Override
                     public void onChanged(@Nullable BaseResponse<BrakeAnalysisResponse> response) {
+                        binding.brakingAnalysisSwipeRefreshLayout.setRefreshing(false);
                         if (response != null) {
                             if (response.getIsSuccess()) {
                                 initAverageReductionExpectancyBarChart(response.getData());
@@ -86,9 +94,10 @@ public class BrakingAnalysisActivity extends AppCompatActivity {
         List<BarEntry> entries = new ArrayList<>();
         List<String> dates = new ArrayList<>();
 
-        int idx = 0;
+        float idx = 0f;
         for (BrakeAnalysisResponse e : responses) {
-            entries.add(new BarEntry(idx++, e.getAvgReductionExpectancy().floatValue()));
+            entries.add(new BarEntry(idx, e.getAvgReductionExpectancy().floatValue()));
+            idx += 1f;
             dates.add(e.getDay());
         }
 
@@ -106,7 +115,10 @@ public class BrakingAnalysisActivity extends AppCompatActivity {
         BarChart chart = binding.barChartAverageReduction;
         chart.getXAxis().setValueFormatter(formatter);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        chart.getXAxis().setGranularityEnabled(true);
+        chart.getXAxis().setGranularity(1f);
         chart.getDescription().setEnabled(false);
+        chart.getLegend().setEnabled(false);
         chart.setData(data);
         chart.setFitBars(true);
         chart.invalidate();
@@ -133,7 +145,10 @@ public class BrakingAnalysisActivity extends AppCompatActivity {
         BarChart chart = binding.barChartRemainingLife;
         chart.getXAxis().setValueFormatter(formatter);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        chart.getXAxis().setGranularityEnabled(true);
+        chart.getXAxis().setGranularity(1f);
         chart.getDescription().setEnabled(false);
+        chart.getLegend().setEnabled(false);
         chart.setData(data);
         chart.setFitBars(true);
         chart.invalidate();
