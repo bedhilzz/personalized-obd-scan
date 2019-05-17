@@ -19,8 +19,18 @@
 
     <string name="tv_please_register">Belum ada akun? <b>Register</b></string>
 
-    <string name="tv_bar_chart_braking_analysis_average_reduction">Average reduction of life expectancy</string>
-    <string name="tv_bar_chart_braking_analysis_remaining_life">Remaining life expectancy</string>
+    <string name="tv_bar_chart_pad_reduction">Brake pad average reduction of life expectancy</string>
+    <string name="tv_bar_chart_pad_remaining_life">Brake pad remaining life expectancy</string>
+    <string name="tv_bar_chart_disc_reduction">Brake disc average reduction of life expectancy</string>
+    <string name="tv_bar_chart_disc_remaining_life">Brake disc remaining life expectancy</string>
+
+    <string name="tv_bar_chart_pad_reduction_label">Brake pad average reduction of life expectancy (KM)</string>
+    <string name="tv_bar_chart_pad_remaining_life_label">Brake pad remaining life expectancy (KM)</string>
+    <string name="tv_bar_chart_disc_reduction_label">Brake disc average reduction of life expectancy (KM)</string>
+    <string name="tv_bar_chart_disc_remaining_life_label">Brake disc remaining life expectancy (KM)</string>
+
+    <string name="tv_line_chart_fuel_cost">Price (Rp) every Second</string>
+    <string name="tv_line_chart_trip_cost">Price (Rp) every Trip</string>
 
     <string name="tv_component">Komponen</string>
     <string name="tv_damage">Kerusakan</string>

@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import id.ac.ui.ft.personalizedobdscan.models.request.BrakeAnalysisRequest;
+import id.ac.ui.ft.personalizedobdscan.models.request.AnalysisRequest;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BrakeAnalysisResponse;
 import id.ac.ui.ft.personalizedobdscan.repository.ApplicationRepository;
@@ -22,7 +22,7 @@ public class BrakingAnalysisViewModel extends AndroidViewModel {
     }
 
     public LiveData<BaseResponse<BrakeAnalysisResponse>> brakeAnalysis(String email) {
-        BrakeAnalysisRequest request = new BrakeAnalysisRequest();
+        AnalysisRequest request = new AnalysisRequest();
         request.setEmail(email);
 
         LiveData<BaseResponse<BrakeAnalysisResponse>> response = ApplicationRepository.getInstance().brakeAnalysis(request);

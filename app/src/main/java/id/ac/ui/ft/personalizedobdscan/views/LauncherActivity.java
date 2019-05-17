@@ -35,6 +35,7 @@ public class LauncherActivity extends AppCompatActivity {
         binding = DataBindingUtil.
                 setContentView(LauncherActivity.this, R.layout.activity_launcher);
 
+        checkLoginState();
         initComponent();
     }
 
@@ -54,6 +55,17 @@ public class LauncherActivity extends AppCompatActivity {
         initViewModel();
         initRegisterButton();
         initLoginButton();
+    }
+
+    private void checkLoginState() {
+        String email = mPrefs.getString(Constants.PREF_KEY_USER_EMAIL, null);
+        String token = mPrefs.getString(Constants.PREF_KEY_FCM_TOKEN, null);
+
+        if (email != null && token != null) {
+            final Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void initViewModel() {
@@ -83,7 +95,7 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     private void doLogin() {
-        final Intent  intent = new Intent(this, HomeActivity.class);
+        final Intent intent = new Intent(this, HomeActivity.class);
 
         final String email = binding.etEmailLogin.getText().toString();
         final String password = binding.etPasswordLogin.getText().toString();

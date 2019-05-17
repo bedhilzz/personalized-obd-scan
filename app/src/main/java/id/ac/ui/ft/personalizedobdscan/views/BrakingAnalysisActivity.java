@@ -33,6 +33,11 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
     private BrakingAnalysisViewModel viewModel;
     private SharedPreferences mPrefs;
 
+    private BarChart padReductionChart;
+    private BarChart padRemainingLifeChart;
+    private BarChart discReductionChart;
+    private BarChart discRemainingLifeChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +64,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
 
     private void initComponent() {
         initViewModel();
+        initChart();
         getBrakingAnalysisData();
     }
 
@@ -67,6 +73,37 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
 
         binding.setModel(viewModel);
         binding.setLifecycleOwner(this);
+    }
+
+    private void initChart() {
+        padReductionChart = binding.barChartAverageReductionPad;
+        padRemainingLifeChart = binding.barChartRemainingLifePad;
+        discReductionChart = binding.barChartAverageReductionDisc;
+        discRemainingLifeChart = binding.barChartRemainingLifeDisc;
+
+        padReductionChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        padReductionChart.getXAxis().setGranularityEnabled(true);
+        padReductionChart.getXAxis().setGranularity(1f);
+        padReductionChart.getDescription().setEnabled(false);
+        padReductionChart.setFitBars(true);
+
+        padRemainingLifeChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        padRemainingLifeChart.getXAxis().setGranularityEnabled(true);
+        padRemainingLifeChart.getXAxis().setGranularity(1f);
+        padRemainingLifeChart.getDescription().setEnabled(false);
+        padRemainingLifeChart.setFitBars(true);
+
+        discReductionChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        discReductionChart.getXAxis().setGranularityEnabled(true);
+        discReductionChart.getXAxis().setGranularity(1f);
+        discReductionChart.getDescription().setEnabled(false);
+        discReductionChart.setFitBars(true);
+
+        discRemainingLifeChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        discRemainingLifeChart.getXAxis().setGranularityEnabled(true);
+        discRemainingLifeChart.getXAxis().setGranularity(1f);
+        discRemainingLifeChart.getDescription().setEnabled(false);
+        discRemainingLifeChart.setFitBars(true);
     }
 
     private void getBrakingAnalysisData() {
@@ -78,8 +115,11 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
                         binding.brakingAnalysisSwipeRefreshLayout.setRefreshing(false);
                         if (response != null) {
                             if (response.getIsSuccess()) {
-                                initAverageReductionExpectancyBarChart(response.getData());
-                                initRemainingLifeBarChart(response.getData());
+                                initChartDates(response.getData());
+                                initPadAverageReductionExpectancyBarChart(response.getData());
+                                initDiscAverageReductionExpectancyBarChart(response.getData());
+                                initPadRemainingLifeBarChart(response.getData());
+                                initDiscRemainingLifeBarChart(response.getData());
                             } else {
                                 showMessage(response.getMessage());
                             }
@@ -90,68 +130,107 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
                 });
     }
 
-    private void initAverageReductionExpectancyBarChart(List<BrakeAnalysisResponse> responses) {
-        List<BarEntry> entries = new ArrayList<>();
+    private void initChartDates(List<BrakeAnalysisResponse> responses) {
         List<String> dates = new ArrayList<>();
 
-        float idx = 0f;
         for (BrakeAnalysisResponse e : responses) {
-            entries.add(new BarEntry(idx, e.getAvgReductionExpectancy().floatValue()));
-            idx += 1f;
             dates.add(e.getDay());
         }
 
         viewModel.brakeDataDates = dates;
+    }
+
+    private void initPadAverageReductionExpectancyBarChart(List<BrakeAnalysisResponse> responses) {
+        List<BarEntry> entries = new ArrayList<>();
+
+        float idx = 0f;
+        for (BrakeAnalysisResponse e : responses) {
+            entries.add(new BarEntry(idx, e.getAvgReductionExpectancyKampas().floatValue()));
+            idx += 1f;
+        }
 
         BrakeAnalysisXAxisFormatter formatter = new BrakeAnalysisXAxisFormatter();
-        formatter.setDates(dates);
+        formatter.setDates(viewModel.brakeDataDates);
 
-        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_bar_chart_braking_analysis_average_reduction));
+        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_bar_chart_pad_reduction_label));
         set.setColors(getResources().getColor(R.color.colorPrimaryDark));
 
         BarData data = new BarData(set);
         data.setBarWidth(0.9f);
 
-        BarChart chart = binding.barChartAverageReduction;
-        chart.getXAxis().setValueFormatter(formatter);
-        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        chart.getXAxis().setGranularityEnabled(true);
-        chart.getXAxis().setGranularity(1f);
-        chart.getDescription().setEnabled(false);
-        chart.getLegend().setEnabled(false);
-        chart.setData(data);
-        chart.setFitBars(true);
-        chart.invalidate();
+        padReductionChart.getXAxis().setValueFormatter(formatter);
+        padReductionChart.setData(data);
+        padReductionChart.invalidate();
     }
 
-    private void initRemainingLifeBarChart(List<BrakeAnalysisResponse> responses) {
+    private void initPadRemainingLifeBarChart(List<BrakeAnalysisResponse> responses) {
         List<BarEntry> entries = new ArrayList<>();
 
         int idx = 0;
         for (BrakeAnalysisResponse e : responses) {
-            entries.add(new BarEntry(idx++, e.getRemainingLife().floatValue()));
+            entries.add(new BarEntry(idx++, e.getRemainingLifeKampas().floatValue()));
         }
 
 
         BrakeAnalysisXAxisFormatter formatter = new BrakeAnalysisXAxisFormatter();
         formatter.setDates(viewModel.brakeDataDates);
 
-        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_bar_chart_braking_analysis_remaining_life));
+        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_bar_chart_pad_remaining_life_label));
+        set.setColors(getResources().getColor(R.color.colorPrimaryDark));
+
+        BarData data = new BarData(set);
+        data.setBarWidth(0.9f);
+
+        padRemainingLifeChart.getXAxis().setValueFormatter(formatter);
+        padRemainingLifeChart.setData(data);
+        padRemainingLifeChart.invalidate();
+    }
+
+    private void initDiscAverageReductionExpectancyBarChart(List<BrakeAnalysisResponse> responses) {
+        List<BarEntry> entries = new ArrayList<>();
+
+        int idx = 0;
+        for (BrakeAnalysisResponse e : responses) {
+            entries.add(new BarEntry(idx++, e.getAvgReductionExpectancyCakram().floatValue()));
+        }
+
+
+        BrakeAnalysisXAxisFormatter formatter = new BrakeAnalysisXAxisFormatter();
+        formatter.setDates(viewModel.brakeDataDates);
+
+        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_bar_chart_disc_reduction_label));
         set.setColors(getResources().getColor(R.color.colorRed));
 
         BarData data = new BarData(set);
         data.setBarWidth(0.9f);
 
-        BarChart chart = binding.barChartRemainingLife;
-        chart.getXAxis().setValueFormatter(formatter);
-        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        chart.getXAxis().setGranularityEnabled(true);
-        chart.getXAxis().setGranularity(1f);
-        chart.getDescription().setEnabled(false);
-        chart.getLegend().setEnabled(false);
-        chart.setData(data);
-        chart.setFitBars(true);
-        chart.invalidate();
+        discReductionChart.getXAxis().setValueFormatter(formatter);
+        discReductionChart.setData(data);
+        discReductionChart.invalidate();
+    }
+
+    private void initDiscRemainingLifeBarChart(List<BrakeAnalysisResponse> responses) {
+        List<BarEntry> entries = new ArrayList<>();
+
+        int idx = 0;
+        for (BrakeAnalysisResponse e : responses) {
+            entries.add(new BarEntry(idx++, e.getRemainingLifeCakram().floatValue()));
+        }
+
+
+        BrakeAnalysisXAxisFormatter formatter = new BrakeAnalysisXAxisFormatter();
+        formatter.setDates(viewModel.brakeDataDates);
+
+        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_bar_chart_disc_remaining_life_label));
+        set.setColors(getResources().getColor(R.color.colorRed));
+
+        BarData data = new BarData(set);
+        data.setBarWidth(0.9f);
+
+
+        discRemainingLifeChart.getXAxis().setValueFormatter(formatter);
+        discRemainingLifeChart.setData(data);
+        discRemainingLifeChart.invalidate();
     }
 
     private void showMessage(String message) {

@@ -47,8 +47,8 @@
                 <ImageView
                     android:src="@drawable/disc_brake"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
 
                 <TextView
                     android:textAlignment="center"
@@ -87,18 +87,18 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:src="@drawable/driving_behaviour"
+                    android:src="@drawable/fuel_cost"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="50dp" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
 
                 <TextView
                     android:textAlignment="center"
-                    android:text="Driving Behaviour"
+                    android:text="Fuel Cost"
                     android:textColor="@color/colorPrimary"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -134,8 +134,8 @@
                 <ImageView
                     android:src="@drawable/air_filter"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
 
                 <TextView
                     android:textAlignment="center"

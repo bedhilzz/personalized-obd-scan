@@ -3,7 +3,7 @@ package id.ac.ui.ft.personalizedobdscan.models.request;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BrakeAnalysisRequest {
+public class AnalysisRequest {
     @SerializedName("user_email")
     @Expose
     private String email;

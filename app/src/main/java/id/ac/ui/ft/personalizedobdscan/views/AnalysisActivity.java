@@ -32,11 +32,35 @@ public class AnalysisActivity extends AppCompatActivity {
 
     private void initComponent() {
         initBrakingAnalysisCardView();
+        initFuelSystemCardView();
+        initAirFilterCardView();
     }
 
     private void initBrakingAnalysisCardView() {
         CardView cardView=(CardView) mainGrid.getChildAt(0);
         final Intent intent = new Intent(this, BrakingAnalysisActivity.class);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initFuelSystemCardView() {
+        CardView cardView=(CardView) mainGrid.getChildAt(1);
+        final Intent intent = new Intent(this, FuelSystemActivity.class);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initAirFilterCardView() {
+        CardView cardView=(CardView) mainGrid.getChildAt(2);
+        final Intent intent = new Intent(this, AirFilterActivity.class);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

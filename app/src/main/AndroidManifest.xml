@@ -11,10 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".views.FuelSystemActivity"
+            android:label="Fuel Cost Analysis"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".views.AirFilterActivity"
+            android:label="Air Filter Analysis"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".views.BrakingAnalysisActivity"
             android:label="Braking Analysis"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".views.LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar">
