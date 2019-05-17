@@ -3,11 +3,12 @@ package id.ac.ui.ft.personalizedobdscan.repository;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
-import id.ac.ui.ft.personalizedobdscan.models.request.BrakeAnalysisRequest;
+import id.ac.ui.ft.personalizedobdscan.models.request.AnalysisRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.LoginRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.RegisterRequest;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BrakeAnalysisResponse;
+import id.ac.ui.ft.personalizedobdscan.models.response.FuelSystemResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.LoginResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.RegisterResponse;
 import retrofit2.Call;
@@ -74,7 +75,7 @@ public class ApplicationRepository {
         return data;
     }
 
-    public LiveData<BaseResponse<BrakeAnalysisResponse>> brakeAnalysis(final BrakeAnalysisRequest request) {
+    public LiveData<BaseResponse<BrakeAnalysisResponse>> brakeAnalysis(final AnalysisRequest request) {
         final MutableLiveData<BaseResponse<BrakeAnalysisResponse>> data = new MutableLiveData<>();
 
         apiService.getBreakingData(request).enqueue(new Callback<BaseResponse<BrakeAnalysisResponse>>() {
@@ -89,6 +90,28 @@ public class ApplicationRepository {
 
             @Override
             public void onFailure(Call<BaseResponse<BrakeAnalysisResponse>> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
+    }
+
+    public LiveData<BaseResponse<FuelSystemResponse>> fuelSystemAnalysis(final AnalysisRequest request) {
+        final MutableLiveData<BaseResponse<FuelSystemResponse>> data = new MutableLiveData<>();
+
+        apiService.getFuelSystemData(request).enqueue(new Callback<BaseResponse<FuelSystemResponse>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<FuelSystemResponse>> call, Response<BaseResponse<FuelSystemResponse>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<FuelSystemResponse>> call, Throwable t) {
                 data.setValue(null);
             }
         });
