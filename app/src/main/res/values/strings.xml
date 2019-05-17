@@ -29,8 +29,14 @@
     <string name="tv_bar_chart_disc_reduction_label">Brake disc average reduction of life expectancy (KM)</string>
     <string name="tv_bar_chart_disc_remaining_life_label">Brake disc remaining life expectancy (KM)</string>
 
-    <string name="tv_line_chart_fuel_cost">Price (Rp) every Second</string>
+    <string name="tv_line_chart_fuel_cost">Average price (Rp) per second every Trip</string>
     <string name="tv_line_chart_trip_cost">Price (Rp) every Trip</string>
+
+    <string name="tv_air_filter_date_label">Kondisi Air Filter pada Tanggal</string>
+    <string name="tv_air_filter_suggestion_label">Saran Perawatan</string>
+
+    <string name="tv_air_filter_suggestion_normal">Air Filter dalam kondisi normal, tidak ada tindakan yang perlu dilakukan.</string>
+    <string name="tv_air_filter_suggestion_damaged">Silahkan cek dan bersihkan Air Filter, apabila perlu, silahkan ganti Air Filter dengan yang baru.</string>
 
     <string name="tv_component">Komponen</string>
     <string name="tv_damage">Kerusakan</string>

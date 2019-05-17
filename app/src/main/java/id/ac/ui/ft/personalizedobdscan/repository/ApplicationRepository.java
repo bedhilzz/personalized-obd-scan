@@ -6,6 +6,7 @@ import android.arch.lifecycle.MutableLiveData;
 import id.ac.ui.ft.personalizedobdscan.models.request.AnalysisRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.LoginRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.RegisterRequest;
+import id.ac.ui.ft.personalizedobdscan.models.response.AirFilterResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BrakeAnalysisResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.FuelSystemResponse;
@@ -112,6 +113,28 @@ public class ApplicationRepository {
 
             @Override
             public void onFailure(Call<BaseResponse<FuelSystemResponse>> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
+    }
+
+    public LiveData<BaseResponse<AirFilterResponse>> airFilterAnalysis(final AnalysisRequest request) {
+        final MutableLiveData<BaseResponse<AirFilterResponse>> data = new MutableLiveData<>();
+
+        apiService.getAirFilterData(request).enqueue(new Callback<BaseResponse<AirFilterResponse>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<AirFilterResponse>> call, Response<BaseResponse<AirFilterResponse>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<AirFilterResponse>> call, Throwable t) {
                 data.setValue(null);
             }
         });

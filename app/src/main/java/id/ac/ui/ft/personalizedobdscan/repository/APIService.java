@@ -3,6 +3,7 @@ package id.ac.ui.ft.personalizedobdscan.repository;
 import id.ac.ui.ft.personalizedobdscan.models.request.AnalysisRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.LoginRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.RegisterRequest;
+import id.ac.ui.ft.personalizedobdscan.models.response.AirFilterResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BrakeAnalysisResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.FuelSystemResponse;
@@ -25,4 +26,7 @@ public interface APIService {
 
     @POST("user/get-fuel-system-data/")
     Call<BaseResponse<FuelSystemResponse>> getFuelSystemData(@Body AnalysisRequest analysisRequest);
+
+    @POST("user/get-air-filter-data/")
+    Call<BaseResponse<AirFilterResponse>> getAirFilterData(@Body AnalysisRequest analysisRequest);
 }

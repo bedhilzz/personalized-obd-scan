@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -43,9 +45,6 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_fuel_system);
 
-        fuelCostChart = binding.lineChartFuelCost;
-        tripCostChart = binding.lineChartTripCost;
-
         initComponent();
     }
 
@@ -62,7 +61,23 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
 
     private void initComponent() {
         initViewModel();
+        initChart();
         getFuelAnalysisData();
+    }
+
+    private void initChart() {
+        fuelCostChart = binding.lineChartFuelCost;
+        tripCostChart = binding.lineChartTripCost;
+
+        fuelCostChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        fuelCostChart.getXAxis().setGranularityEnabled(true);
+        fuelCostChart.getXAxis().setGranularity(1f);
+        fuelCostChart.getDescription().setEnabled(false);
+
+        tripCostChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        tripCostChart.getXAxis().setGranularityEnabled(true);
+        tripCostChart.getXAxis().setGranularity(1f);
+        tripCostChart.getDescription().setEnabled(false);
     }
 
     private void initViewModel() {
@@ -96,18 +111,22 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
     private void initFuelCostLineChart(List<FuelSystemResponse> responses) {
         List<Entry> entries = new ArrayList<>();
 
-        float idx = 0f;
+        float idx = 1f;
         for (FuelSystemResponse e : responses) {
             entries.add(new Entry(idx, e.getFuelCost().floatValue()));
             idx += 1f;
         }
 
         LineDataSet set = new LineDataSet(entries, getString(R.string.tv_line_chart_fuel_cost));
+        set.setLineWidth(2f);
+        set.setDrawFilled(true);
+        set.setColor(getResources().getColor(R.color.colorPrimaryDark));
+        set.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
+        set.setFillColor(getResources().getColor(R.color.colorPrimary));
 
         LineData data = new LineData(set);
 
-        fuelCostChart.getXAxis().setGranularity(1f);
-        fuelCostChart.getDescription().setEnabled(false);
+
         fuelCostChart.setData(data);
         fuelCostChart.invalidate();
     }
@@ -115,18 +134,21 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
     private void initTripCostLineChart(List<FuelSystemResponse> responses) {
         List<Entry> entries = new ArrayList<>();
 
-        float idx = 0f;
+        float idx = 1f;
         for (FuelSystemResponse e : responses) {
             entries.add(new Entry(idx, e.getTripCost().floatValue()));
             idx += 1f;
         }
 
         LineDataSet set = new LineDataSet(entries, getString(R.string.tv_line_chart_trip_cost));
+        set.setLineWidth(2f);
+        set.setDrawFilled(true);
+        set.setColor(getResources().getColor(R.color.colorPrimaryDark));
+        set.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
+        set.setFillColor(getResources().getColor(R.color.colorPrimary));
 
         LineData data = new LineData(set);
 
-        tripCostChart.getXAxis().setGranularity(1f);
-        tripCostChart.getDescription().setEnabled(false);
         tripCostChart.setData(data);
         tripCostChart.invalidate();
     }
