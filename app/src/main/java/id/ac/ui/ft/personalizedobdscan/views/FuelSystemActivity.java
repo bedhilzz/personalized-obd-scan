@@ -5,13 +5,13 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -44,6 +44,7 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
         mPrefs = getSharedPreferences(Constants.PREF_FILE_NAME, Context.MODE_PRIVATE);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_fuel_system);
+        binding.fuelAnalysisSwipeRefreshLayout.setOnRefreshListener(this);
 
         initComponent();
     }
@@ -128,7 +129,7 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
 
 
         fuelCostChart.setData(data);
-        fuelCostChart.invalidate();
+        fuelCostChart.animateX(1000, Easing.EaseInCubic);
     }
 
     private void initTripCostLineChart(List<FuelSystemResponse> responses) {
@@ -150,7 +151,7 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
         LineData data = new LineData(set);
 
         tripCostChart.setData(data);
-        tripCostChart.invalidate();
+        tripCostChart.animateX(1000, Easing.EaseInCubic);
     }
 
     private void showMessage(String message) {

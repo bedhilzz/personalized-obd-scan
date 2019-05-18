@@ -1,5 +1,6 @@
 package id.ac.ui.ft.personalizedobdscan.views;
 
+import android.animation.LayoutTransition;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.Locale;
@@ -35,7 +37,8 @@ public class AirFilterActivity extends AppCompatActivity {
         mPrefs = getSharedPreferences(Constants.PREF_FILE_NAME, Context.MODE_PRIVATE);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_air_filter);
-
+        binding.airFilterContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        binding.airFilterContainer.setVisibility(View.INVISIBLE);
         initComponent();
     }
 
@@ -68,6 +71,7 @@ public class AirFilterActivity extends AppCompatActivity {
                 observe(this, new Observer<BaseResponse<AirFilterResponse>>() {
                     @Override
                     public void onChanged(@Nullable BaseResponse<AirFilterResponse> response) {
+                        binding.airFilterContainer.setVisibility(View.VISIBLE);
                         if (response != null) {
                             if (response.getIsSuccess()) {
                                 setAirFilterAnalysis(response.getData().get(0));

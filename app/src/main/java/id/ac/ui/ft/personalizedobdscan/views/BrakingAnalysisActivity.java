@@ -11,6 +11,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -160,7 +161,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
 
         padReductionChart.getXAxis().setValueFormatter(formatter);
         padReductionChart.setData(data);
-        padReductionChart.invalidate();
+        padReductionChart.animateXY(1000, 1000, Easing.EaseInOutCubic);
     }
 
     private void initPadRemainingLifeBarChart(List<BrakeAnalysisResponse> responses) {
@@ -183,7 +184,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
 
         padRemainingLifeChart.getXAxis().setValueFormatter(formatter);
         padRemainingLifeChart.setData(data);
-        padRemainingLifeChart.invalidate();
+        padRemainingLifeChart.animateXY(1000, 1000, Easing.EaseInOutCubic);
     }
 
     private void initDiscAverageReductionExpectancyBarChart(List<BrakeAnalysisResponse> responses) {
@@ -206,7 +207,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
 
         discReductionChart.getXAxis().setValueFormatter(formatter);
         discReductionChart.setData(data);
-        discReductionChart.invalidate();
+        discReductionChart.animateXY(1000, 1000, Easing.EaseInOutCubic);
     }
 
     private void initDiscRemainingLifeBarChart(List<BrakeAnalysisResponse> responses) {
@@ -230,7 +231,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
 
         discRemainingLifeChart.getXAxis().setValueFormatter(formatter);
         discRemainingLifeChart.setData(data);
-        discRemainingLifeChart.invalidate();
+        discRemainingLifeChart.animateXY(1000, 1000, Easing.EaseInOutCubic);
     }
 
     private void showMessage(String message) {
