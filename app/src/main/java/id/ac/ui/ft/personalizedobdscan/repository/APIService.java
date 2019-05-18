@@ -27,6 +27,6 @@ public interface APIService {
     @POST("user/get-fuel-system-data/")
     Call<BaseResponse<FuelSystemResponse>> getFuelSystemData(@Body AnalysisRequest analysisRequest);
 
-    @POST("user/get-air-filter-data/")
+    @POST("user/get-air-filter-data/estimated/")
     Call<BaseResponse<AirFilterResponse>> getAirFilterData(@Body AnalysisRequest analysisRequest);
 }

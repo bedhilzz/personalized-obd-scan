@@ -33,6 +33,8 @@
     <string name="tv_line_chart_trip_cost">Price (Rp) every Trip</string>
 
     <string name="tv_air_filter_date_label">Kondisi Air Filter pada Tanggal</string>
+    <string name="tv_air_filter_change_estimation_month_label">Estimasi Sisa Waktu Penggantian</string>
+    <string name="tv_air_filter_change_estimation_km_label">Estimasi Sisa Jarak Penggantian</string>
     <string name="tv_air_filter_suggestion_label">Saran Perawatan</string>
 
     <string name="tv_air_filter_suggestion_normal">Air Filter dalam kondisi normal, tidak ada tindakan yang perlu dilakukan.</string>

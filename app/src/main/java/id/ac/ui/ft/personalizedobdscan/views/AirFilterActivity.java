@@ -88,6 +88,8 @@ public class AirFilterActivity extends AppCompatActivity {
 
         binding.tvAirFilterConditionDate.setText(AppUtil.formatDate(response.getTimestamp()));
         binding.tvAirFilterCondition.setText(String.format(Locale.US, "%d%%", condition));
+        binding.tvAirFilterChangeEstimationMonth.setText(String.format(Locale.US, "%d bulan", response.getEstimatedTimeLeft().intValue()));
+        binding.tvAirFilterChangeEstimationKm.setText(String.format(Locale.US, "%d KM", response.getEstimatedDistanceLeft().intValue()));
         if (condition < 30) {
             binding.tvAirFilterSuggestion.setText(R.string.tv_air_filter_suggestion_damaged);
         } else {
