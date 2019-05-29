@@ -1,4 +1,4 @@
-package id.ac.ui.ft.personalizedobdscan.views;
+package id.ac.ui.ft.personalizedobdscan.views.airfilter;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;

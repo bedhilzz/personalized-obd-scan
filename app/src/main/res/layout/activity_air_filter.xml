@@ -2,135 +2,44 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="model" type="id.ac.ui.ft.personalizedobdscan.viewmodels.AirFilterViewModel"/>
+        <variable name="model" type="id.ac.ui.ft.personalizedobdscan.viewmodels.airfilter.AirFilterViewModel"/>
     </data>
-    <ScrollView
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/air_filter_container"
-            android:layout_width="match_parent"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_height="wrap_content"
-            android:animateLayoutChanges="true">
+            android:layout_width="match_parent">
 
-            <id.ac.ui.ft.personalizedobdscan.views.AirFilterProgressBar
-                android:id="@+id/air_filter_progress_bar"
-                android:layout_width="0dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_air_filter_condition"
-                android:layout_width="wrap_content"
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="0%"
-                android:textSize="36sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/air_filter_progress_bar" />
+                app:tabIndicatorColor="@color/colorWhite"
+                app:tabMaxWidth="0dp"
+                app:tabTextColor="@color/colorWhite">
 
-            <TextView
-                android:id="@+id/tv_air_filter_condition_date_label"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/tv_air_filter_date_label"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_air_filter_condition" />
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_1_text" />
 
-            <TextView
-                android:id="@+id/tv_air_filter_condition_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/tv_lorem_ipsum"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_air_filter_condition_date_label" />
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_2_text" />
+            </android.support.design.widget.TabLayout>
+        </android.support.design.widget.AppBarLayout>
 
-            <TextView
-                android:id="@+id/tv_air_filter_change_estimation_month_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/tv_air_filter_change_estimation_month_label"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_air_filter_condition_date" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <TextView
-                android:id="@+id/tv_air_filter_change_estimation_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/tv_lorem_ipsum"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_air_filter_change_estimation_month_label" />
+        </android.support.v4.view.ViewPager>
 
-            <TextView
-                android:id="@+id/tv_air_filter_change_estimation_km_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/tv_air_filter_change_estimation_km_label"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_air_filter_change_estimation_month" />
-
-            <TextView
-                android:id="@+id/tv_air_filter_change_estimation_km"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/tv_lorem_ipsum"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_air_filter_change_estimation_km_label" />
-
-            <TextView
-                android:id="@+id/tv_air_filter_suggestion_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/tv_air_filter_suggestion_label"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_air_filter_change_estimation_km" />
-
-            <TextView
-                android:id="@+id/tv_air_filter_suggestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/tv_lorem_ipsum"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_air_filter_suggestion_label" />
-
-        </android.support.constraint.ConstraintLayout>
-    </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

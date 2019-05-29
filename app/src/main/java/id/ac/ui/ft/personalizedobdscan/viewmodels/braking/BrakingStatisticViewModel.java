@@ -13,10 +13,10 @@ import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BrakeAnalysisResponse;
 import id.ac.ui.ft.personalizedobdscan.repository.ApplicationRepository;
 
-public class BrakingAnalysisViewModel extends AndroidViewModel {
+public class BrakingStatisticViewModel extends AndroidViewModel {
     public List<String> brakeDataDates;
 
-    public BrakingAnalysisViewModel(@NonNull Application application) {
+    public BrakingStatisticViewModel(@NonNull Application application) {
         super(application);
         brakeDataDates = new ArrayList<>();
     }

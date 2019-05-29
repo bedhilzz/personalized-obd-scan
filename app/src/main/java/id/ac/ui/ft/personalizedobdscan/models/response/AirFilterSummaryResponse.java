@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-public class AirFilterResponse {
+public class AirFilterSummaryResponse {
     @SerializedName("timestamp")
     @Expose
     private Date timestamp;

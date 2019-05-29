@@ -46,7 +46,7 @@ public class BrakingAnalysisActivity extends AppCompatActivity implements SwipeR
 
         mPrefs = getSharedPreferences(Constants.PREF_FILE_NAME, Context.MODE_PRIVATE);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_braking_analysis);
+        binding = DataBindingUtil.setContentView(this, R.layout.fragment_braking_statistic);
         binding.brakingAnalysisSwipeRefreshLayout.setOnRefreshListener(this);
 
         initComponent();
