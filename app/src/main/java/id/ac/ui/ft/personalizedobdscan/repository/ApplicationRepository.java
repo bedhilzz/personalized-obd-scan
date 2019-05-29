@@ -4,11 +4,15 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import id.ac.ui.ft.personalizedobdscan.models.request.AnalysisRequest;
+import id.ac.ui.ft.personalizedobdscan.models.request.BrakingRecommendationRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.LoginRequest;
 import id.ac.ui.ft.personalizedobdscan.models.request.RegisterRequest;
-import id.ac.ui.ft.personalizedobdscan.models.response.AirFilterResponse;
+import id.ac.ui.ft.personalizedobdscan.models.response.AirFilterStatisticResponse;
+import id.ac.ui.ft.personalizedobdscan.models.response.AirFilterSummaryResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
-import id.ac.ui.ft.personalizedobdscan.models.response.BrakeAnalysisResponse;
+import id.ac.ui.ft.personalizedobdscan.models.response.BrakingRecommendationResponse;
+import id.ac.ui.ft.personalizedobdscan.models.response.BrakingStatisticResponse;
+import id.ac.ui.ft.personalizedobdscan.models.response.BrakingSummaryResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.FuelSystemResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.LoginResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.RegisterResponse;
@@ -76,12 +80,12 @@ public class ApplicationRepository {
         return data;
     }
 
-    public LiveData<BaseResponse<BrakeAnalysisResponse>> brakeAnalysis(final AnalysisRequest request) {
-        final MutableLiveData<BaseResponse<BrakeAnalysisResponse>> data = new MutableLiveData<>();
+    public LiveData<BaseResponse<BrakingStatisticResponse>> brakingStatistic(final AnalysisRequest request) {
+        final MutableLiveData<BaseResponse<BrakingStatisticResponse>> data = new MutableLiveData<>();
 
-        apiService.getBreakingData(request).enqueue(new Callback<BaseResponse<BrakeAnalysisResponse>>() {
+        apiService.getBrakingStatisticData(request).enqueue(new Callback<BaseResponse<BrakingStatisticResponse>>() {
             @Override
-            public void onResponse(Call<BaseResponse<BrakeAnalysisResponse>> call, Response<BaseResponse<BrakeAnalysisResponse>> response) {
+            public void onResponse(Call<BaseResponse<BrakingStatisticResponse>> call, Response<BaseResponse<BrakingStatisticResponse>> response) {
                 if (response.isSuccessful()) {
                     data.setValue(response.body());
                 } else {
@@ -90,7 +94,51 @@ public class ApplicationRepository {
             }
 
             @Override
-            public void onFailure(Call<BaseResponse<BrakeAnalysisResponse>> call, Throwable t) {
+            public void onFailure(Call<BaseResponse<BrakingStatisticResponse>> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
+    }
+
+    public LiveData<BaseResponse<BrakingSummaryResponse>> brakingSummary(final AnalysisRequest request) {
+        final MutableLiveData<BaseResponse<BrakingSummaryResponse>> data = new MutableLiveData<>();
+
+        apiService.getBrakingSummaryData(request).enqueue(new Callback<BaseResponse<BrakingSummaryResponse>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<BrakingSummaryResponse>> call, Response<BaseResponse<BrakingSummaryResponse>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<BrakingSummaryResponse>> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
+    }
+
+    public LiveData<BaseResponse<BrakingRecommendationResponse>> brakingSummary(final BrakingRecommendationRequest request) {
+        final MutableLiveData<BaseResponse<BrakingRecommendationResponse>> data = new MutableLiveData<>();
+
+        apiService.getBrakingSummaryData(request).enqueue(new Callback<BaseResponse<BrakingRecommendationResponse>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<BrakingRecommendationResponse>> call, Response<BaseResponse<BrakingRecommendationResponse>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<BrakingRecommendationResponse>> call, Throwable t) {
                 data.setValue(null);
             }
         });
@@ -120,12 +168,12 @@ public class ApplicationRepository {
         return data;
     }
 
-    public LiveData<BaseResponse<AirFilterResponse>> airFilterAnalysis(final AnalysisRequest request) {
-        final MutableLiveData<BaseResponse<AirFilterResponse>> data = new MutableLiveData<>();
+    public LiveData<BaseResponse<AirFilterSummaryResponse>> airFilterSummary(final AnalysisRequest request) {
+        final MutableLiveData<BaseResponse<AirFilterSummaryResponse>> data = new MutableLiveData<>();
 
-        apiService.getAirFilterData(request).enqueue(new Callback<BaseResponse<AirFilterResponse>>() {
+        apiService.getAirFilterData(request).enqueue(new Callback<BaseResponse<AirFilterSummaryResponse>>() {
             @Override
-            public void onResponse(Call<BaseResponse<AirFilterResponse>> call, Response<BaseResponse<AirFilterResponse>> response) {
+            public void onResponse(Call<BaseResponse<AirFilterSummaryResponse>> call, Response<BaseResponse<AirFilterSummaryResponse>> response) {
                 if (response.isSuccessful()) {
                     data.setValue(response.body());
                 } else {
@@ -134,7 +182,29 @@ public class ApplicationRepository {
             }
 
             @Override
-            public void onFailure(Call<BaseResponse<AirFilterResponse>> call, Throwable t) {
+            public void onFailure(Call<BaseResponse<AirFilterSummaryResponse>> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+
+        return data;
+    }
+
+    public LiveData<BaseResponse<AirFilterStatisticResponse>> airFilterStatistic(final AnalysisRequest request) {
+        final MutableLiveData<BaseResponse<AirFilterStatisticResponse>> data = new MutableLiveData<>();
+
+        apiService.getAirFilterMonthlyData(request).enqueue(new Callback<BaseResponse<AirFilterStatisticResponse>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<AirFilterStatisticResponse>> call, Response<BaseResponse<AirFilterStatisticResponse>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<AirFilterStatisticResponse>> call, Throwable t) {
                 data.setValue(null);
             }
         });
