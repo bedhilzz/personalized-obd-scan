@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Personalized OBD Scan</string>
+    <string name="tab_1_text">Summary</string>
+    <string name="tab_2_text">Statistic</string>
 
     <string name="dummy_email">Email</string>
     <string name="dummy_name">Name</string>
@@ -15,7 +17,7 @@
     <string name="unknown_error">Unknown error Occurred</string>
     <string name="validation_error">Please enter a valid input data</string>
 
-    <string name="tv_lorem_ipsum">Lorem ipsum</string>
+    <string name="tv_lorem_ipsum">No Data Available</string>
 
     <string name="tv_please_register">Belum ada akun? <b>Register</b></string>
 
@@ -37,8 +39,28 @@
     <string name="tv_air_filter_change_estimation_km_label">Estimasi Sisa Jarak Penggantian</string>
     <string name="tv_air_filter_suggestion_label">Saran Perawatan</string>
 
+    <string name="tv_braking_within_range_label">Jumlah Pengereman Pada Batas Normal</string>
+    <string name="tv_braking_above_range_label">Jumlah Pengereman Diatas Normal</string>
+    <string name="tv_braking_below_range_label">Jumlah Pengereman Dibawah Normal</string>
+    <string name="tv_brake_pad_maintenance_label">Periode Pengecekan Kampas Rem</string>
+    <string name="tv_brake_pad_replacement_label">Periode Penggantian Kampas Rem</string>
+    <string name="tv_brake_disc_maintenance_label">Periode Pengecekan Cakram Rem</string>
+    <string name="tv_brake_disc_replacement_label">Periode Penggantian Cakram Rem</string>
+    <string name="tv_braking_summary_suggestion_label">Pemberitahuan</string>
+    <string name="bt_braking_summary_suggestion">Cek Jurnal Tentang Pengereman</string>
+
     <string name="tv_air_filter_suggestion_normal">Air Filter dalam kondisi normal, tidak ada tindakan yang perlu dilakukan.</string>
     <string name="tv_air_filter_suggestion_damaged">Silahkan cek dan bersihkan Air Filter, apabila perlu, silahkan ganti Air Filter dengan yang baru.</string>
+
+    <string name="tv_braking_suggestion_normal">Sistem pengereman dalam kondisi optimal.</string>
+    <string name="tv_braking_suggestion_above_range">Laju pengausan kampas rem semakin tinggi dan berpotensi membutuhkan penggantian lebih cepat.</string>
+    <string name="tv_braking_suggestion_below_range">Performa koefisien gesek kampas rem tidak optimal dan berpotensi berbahaya.</string>
+
+    <string name="tv_bar_chart_air_filter_distance_reduction">Pengurangan sisa jarak penggantian</string>
+    <string name="tv_bar_chart_air_filter_duration_reduction">Pengurangan sisa waktu penggantian</string>
+
+    <string name="tv_bar_chart_air_filter_distance_reduction_label">Pengurangan sisa jarak penggantian (KM)</string>
+    <string name="tv_bar_chart_air_filter_duration_reduction_label">Pengurangan sisa waktu penggantian (KM)</string>
 
     <string name="tv_component">Komponen</string>
     <string name="tv_damage">Kerusakan</string>

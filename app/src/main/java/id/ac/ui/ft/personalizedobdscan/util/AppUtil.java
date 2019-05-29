@@ -10,4 +10,15 @@ public class AppUtil {
         SimpleDateFormat dateId = new SimpleDateFormat("dd MMMM yyyy", Locale.US);
         return dateId.format(date);
     }
+
+    public static String formatDateMonth(Date date) {
+        SimpleDateFormat dateId = new SimpleDateFormat("MMMM yyyy", Locale.US);
+        return dateId.format(date);
+    }
+
+    public static String getCurrentTime() {
+        Date date = new Date();
+        SimpleDateFormat dateId = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+        return dateId.format(date);
+    }
 }

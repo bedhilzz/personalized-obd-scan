@@ -2,7 +2,7 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="model" type="id.ac.ui.ft.personalizedobdscan.viewmodels.BrakingAnalysisViewModel"/>
+        <variable name="model" type="id.ac.ui.ft.personalizedobdscan.viewmodels.braking.BrakingStatisticViewModel"/>
     </data>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/braking_analysis_swipe_refresh_layout"
@@ -19,25 +19,29 @@
 
                 <TextView
                     android:id="@+id/tv_pad_reduction_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/tv_bar_chart_pad_reduction"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_pad_remaining_life_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/tv_bar_chart_pad_remaining_life"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/card_view_pad_reduction" />
 

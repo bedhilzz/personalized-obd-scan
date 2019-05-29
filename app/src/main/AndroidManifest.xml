@@ -14,11 +14,11 @@
         <activity android:name=".views.FuelSystemActivity"
             android:label="Fuel Cost Analysis"
             android:theme="@style/AppTheme" />
-        <activity android:name=".views.AirFilterActivity"
+        <activity android:name=".views.airfilter.AirFilterActivity"
             android:label="Air Filter Analysis"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".views.BrakingAnalysisActivity"
+            android:name=".views.braking.BrakingAnalysisActivity"
             android:label="Braking Analysis"
             android:theme="@style/AppTheme" />
         <activity

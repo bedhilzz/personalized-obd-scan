@@ -3,7 +3,7 @@ package id.ac.ui.ft.personalizedobdscan.models.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BrakeAnalysisResponse {
+public class BrakingStatisticResponse {
     @SerializedName("day")
     @Expose
     private String day;

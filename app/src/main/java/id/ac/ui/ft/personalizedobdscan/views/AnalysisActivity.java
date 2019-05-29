@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.GridLayout;
 
 import id.ac.ui.ft.personalizedobdscan.R;
+import id.ac.ui.ft.personalizedobdscan.views.airfilter.AirFilterActivity;
+import id.ac.ui.ft.personalizedobdscan.views.braking.BrakingAnalysisActivity;
 
 public class AnalysisActivity extends AppCompatActivity {
 
