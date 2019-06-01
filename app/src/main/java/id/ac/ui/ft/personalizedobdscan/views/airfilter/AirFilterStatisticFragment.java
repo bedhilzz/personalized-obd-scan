@@ -139,7 +139,7 @@ public class AirFilterStatisticFragment extends Fragment implements SwipeRefresh
 
         float idx = 0f;
         for (AirFilterStatisticResponse e : responses) {
-            entries.add(new BarEntry(idx, e.getAvgAirFilter().floatValue()));
+            entries.add(new BarEntry(idx, e.getEstimatedDistanceLeft().floatValue()));
             idx += 1f;
         }
 
@@ -162,7 +162,7 @@ public class AirFilterStatisticFragment extends Fragment implements SwipeRefresh
 
         float idx = 0f;
         for (AirFilterStatisticResponse e : responses) {
-            entries.add(new BarEntry(idx, e.getAvgAirFilter().floatValue()));
+            entries.add(new BarEntry(idx, e.getEstimatedTimeLeft().floatValue()));
             idx += 1f;
         }
 

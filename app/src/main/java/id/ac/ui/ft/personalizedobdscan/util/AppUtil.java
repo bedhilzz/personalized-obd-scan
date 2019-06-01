@@ -12,7 +12,7 @@ public class AppUtil {
     }
 
     public static String formatDateMonth(Date date) {
-        SimpleDateFormat dateId = new SimpleDateFormat("MMMM yyyy", Locale.US);
+        SimpleDateFormat dateId = new SimpleDateFormat("MM-yyyy", Locale.US);
         return dateId.format(date);
     }
 
