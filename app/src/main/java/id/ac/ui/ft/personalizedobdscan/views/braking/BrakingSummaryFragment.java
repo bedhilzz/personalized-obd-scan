@@ -148,10 +148,10 @@ public class BrakingSummaryFragment extends Fragment implements SwipeRefreshLayo
 
     private void setBrakingSummaryData(BrakingRecommendationResponse response) {
         try {
-            int brakePadMaintenance = (int) (Constants.BRAKE_PAD_MAINTENANCE_DISTANCE/response.getAvgSecondWeekKampas());
-            int brakePadReplacement = (int) (Constants.BRAKE_PAD_LIFESPAN/response.getAvgSecondWeekKampas());
-            int brakeDiscMaintenance = (int) (Constants.BRAKE_DISC_MAINTENANCE_DISTANCE/response.getAvgSecondWeekCakram());
-            int brakeDiscReplacement = (int) (Constants.BRAKE_DISC_LIFESPAN/response.getAvgSecondWeekCakram());
+            int brakePadMaintenance = (int) (Constants.BRAKE_PAD_MAINTENANCE_DISTANCE/response.getAvgFirstWeekKampas());
+            int brakePadReplacement = (int) (Constants.BRAKE_PAD_LIFESPAN/response.getAvgFirstWeekKampas());
+            int brakeDiscMaintenance = (int) (Constants.BRAKE_DISC_MAINTENANCE_DISTANCE/response.getAvgFirstWeekCakram());
+            int brakeDiscReplacement = (int) (Constants.BRAKE_DISC_LIFESPAN/response.getAvgFirstWeekCakram());
 
             String format = "%d hari sekali";
             binding.tvBrakePadMaintenance.setText(String.format(Locale.US, format, brakePadMaintenance));

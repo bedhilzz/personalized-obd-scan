@@ -60,7 +60,7 @@
     <string name="tv_bar_chart_air_filter_duration_reduction">Pengurangan sisa waktu penggantian</string>
 
     <string name="tv_bar_chart_air_filter_distance_reduction_label">Pengurangan sisa jarak penggantian (KM)</string>
-    <string name="tv_bar_chart_air_filter_duration_reduction_label">Pengurangan sisa waktu penggantian (KM)</string>
+    <string name="tv_bar_chart_air_filter_duration_reduction_label">Pengurangan sisa waktu penggantian (bulan)</string>
 
     <string name="tv_component">Komponen</string>
     <string name="tv_damage">Kerusakan</string>

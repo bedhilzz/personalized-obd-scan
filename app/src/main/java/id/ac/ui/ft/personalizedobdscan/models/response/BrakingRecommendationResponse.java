@@ -4,26 +4,26 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BrakingRecommendationResponse {
-    @SerializedName("avg_second_week_kampas")
+    @SerializedName("avg_first_week_kampas")
     @Expose
-    private Double avgSecondWeekKampas;
-    @SerializedName("avg_second_week_cakram")
+    private Double avgFirstWeekKampas;
+    @SerializedName("avg_first_week_cakram")
     @Expose
-    private Double avgSecondWeekCakram;
+    private Double avgFirstWeekCakram;
 
-    public Double getAvgSecondWeekKampas() {
-        return avgSecondWeekKampas;
+    public Double getAvgFirstWeekKampas() {
+        return avgFirstWeekKampas;
     }
 
-    public void setAvgSecondWeekKampas(Double avgSecondWeekKampas) {
-        this.avgSecondWeekKampas = avgSecondWeekKampas;
+    public void setAvgFirstWeekKampas(Double avgFirstWeekKampas) {
+        this.avgFirstWeekKampas = avgFirstWeekKampas;
     }
 
-    public Double getAvgSecondWeekCakram() {
-        return avgSecondWeekCakram;
+    public Double getAvgFirstWeekCakram() {
+        return avgFirstWeekCakram;
     }
 
-    public void setAvgSecondWeekCakram(Double avgSecondWeekCakram) {
-        this.avgSecondWeekCakram = avgSecondWeekCakram;
+    public void setAvgFirstWeekCakram(Double avgFirstWeekCakram) {
+        this.avgFirstWeekCakram = avgFirstWeekCakram;
     }
 }
