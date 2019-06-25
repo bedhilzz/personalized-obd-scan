@@ -12,11 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +26,7 @@ import id.ac.ui.ft.personalizedobdscan.constant.Constants;
 import id.ac.ui.ft.personalizedobdscan.databinding.ActivityFuelSystemBinding;
 import id.ac.ui.ft.personalizedobdscan.models.response.BaseResponse;
 import id.ac.ui.ft.personalizedobdscan.models.response.FuelSystemResponse;
+import id.ac.ui.ft.personalizedobdscan.util.FuelSystemXAxisFormatter;
 import id.ac.ui.ft.personalizedobdscan.viewmodels.FuelSystemViewModel;
 
 public class FuelSystemActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
@@ -33,8 +34,8 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
     private FuelSystemViewModel viewModel;
     private SharedPreferences mPrefs;
 
-    private LineChart fuelCostChart;
-    private LineChart tripCostChart;
+    private BarChart fuelCostChart;
+    private BarChart tripCostChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,18 +68,20 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
     }
 
     private void initChart() {
-        fuelCostChart = binding.lineChartFuelCost;
-        tripCostChart = binding.lineChartTripCost;
+        fuelCostChart = binding.barChartFuelCost;
+        tripCostChart = binding.barChartTripCost;
 
         fuelCostChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         fuelCostChart.getXAxis().setGranularityEnabled(true);
         fuelCostChart.getXAxis().setGranularity(1f);
         fuelCostChart.getDescription().setEnabled(false);
+        fuelCostChart.setFitBars(true);
 
         tripCostChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         tripCostChart.getXAxis().setGranularityEnabled(true);
         tripCostChart.getXAxis().setGranularity(1f);
         tripCostChart.getDescription().setEnabled(false);
+        tripCostChart.setFitBars(true);
     }
 
     private void initViewModel() {
@@ -110,48 +113,43 @@ public class FuelSystemActivity extends AppCompatActivity implements SwipeRefres
     }
 
     private void initFuelCostLineChart(List<FuelSystemResponse> responses) {
-        List<Entry> entries = new ArrayList<>();
+        List<BarEntry> entries = new ArrayList<>();
 
         float idx = 1f;
         for (FuelSystemResponse e : responses) {
-            entries.add(new Entry(idx, e.getFuelCost().floatValue()));
+            entries.add(new BarEntry(idx, e.getFuelCost().floatValue()));
             idx += 1f;
         }
 
-        LineDataSet set = new LineDataSet(entries, getString(R.string.tv_line_chart_fuel_cost));
-        set.setLineWidth(2f);
-        set.setDrawFilled(true);
+        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_line_chart_fuel_cost));
         set.setColor(getResources().getColor(R.color.colorPrimaryDark));
-        set.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
-        set.setFillColor(getResources().getColor(R.color.colorPrimary));
 
-        LineData data = new LineData(set);
+        BarData data = new BarData(set);
+        data.setBarWidth(0.9f);
 
-
+        fuelCostChart.getXAxis().setValueFormatter(new FuelSystemXAxisFormatter());
         fuelCostChart.setData(data);
-        fuelCostChart.animateX(1000, Easing.EaseInCubic);
+        fuelCostChart.animateXY(1000, 1000, Easing.EaseInOutCubic);;
     }
 
     private void initTripCostLineChart(List<FuelSystemResponse> responses) {
-        List<Entry> entries = new ArrayList<>();
+        List<BarEntry> entries = new ArrayList<>();
 
         float idx = 1f;
         for (FuelSystemResponse e : responses) {
-            entries.add(new Entry(idx, e.getTripCost().floatValue()));
+            entries.add(new BarEntry(idx, e.getTripCost().floatValue()));
             idx += 1f;
         }
 
-        LineDataSet set = new LineDataSet(entries, getString(R.string.tv_line_chart_trip_cost));
-        set.setLineWidth(2f);
-        set.setDrawFilled(true);
+        BarDataSet set = new BarDataSet(entries, getString(R.string.tv_line_chart_trip_cost));
         set.setColor(getResources().getColor(R.color.colorPrimaryDark));
-        set.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
-        set.setFillColor(getResources().getColor(R.color.colorPrimary));
 
-        LineData data = new LineData(set);
+        BarData data = new BarData(set);
+        data.setBarWidth(0.9f);
 
+        tripCostChart.getXAxis().setValueFormatter(new FuelSystemXAxisFormatter());
         tripCostChart.setData(data);
-        tripCostChart.animateX(1000, Easing.EaseInCubic);
+        tripCostChart.animateXY(1000, 1000, Easing.EaseInOutCubic);;
     }
 
     private void showMessage(String message) {

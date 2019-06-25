@@ -43,8 +43,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-                    <com.github.mikephil.charting.charts.LineChart
-                        android:id="@+id/line_chart_fuel_cost"
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/bar_chart_fuel_cost"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="8dp" />
@@ -78,8 +78,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-                    <com.github.mikephil.charting.charts.LineChart
-                        android:id="@+id/line_chart_trip_cost"
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/bar_chart_trip_cost"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="8dp" />
